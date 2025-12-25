@@ -1,0 +1,1 @@
+# data/db_seed/customer_quarter.csv를 db에 담는 용도

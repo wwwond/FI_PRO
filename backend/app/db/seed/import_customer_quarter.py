@@ -1,0 +1,1 @@
+# data/db_seed/customer_quarter.csv를 DB에 적재하는 파이썬
