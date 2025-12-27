@@ -1,1 +1,36 @@
-# 전체 서비스 로컬에서 정의용
+services:
+  postgres:
+    image: postgres:16
+    container_name: fi_pro_postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-fi_pro}
+      POSTGRES_USER: ${POSTGRES_USER:-fi_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-fi_pass}
+      TZ: Asia/Seoul
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - fi_pro_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-fi_user} -d ${POSTGRES_DB:-fi_pro}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    container_name: fi_pro_redis
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - fi_pro_redisdata:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  fi_pro_pgdata:
+  fi_pro_redisdata:
