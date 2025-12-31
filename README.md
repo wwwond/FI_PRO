@@ -24,8 +24,8 @@ docker-compose.yml: DB + 백엔드 + nginx(있으면) 통합 실행
 
 B. data/ (프로젝트 공용 데이터)
 data/raw/: 원본 데이터(수정 금지)
-edu_data_F.csv: 원본/실험용 데이터 파일
-우리 fisa 3기...xlsx: 데이터 명세/정의서
+edu_F.csv: 원본/실험용 데이터 파일
+card_data...xlsx: 데이터 명세/정의서
 data/processed/: 전처리/피처 생성 결과(학습 입력/검증용)
 data/db_seed/: DB에 넣기 좋은 형태로 정리한 CSV
 customer_quarter.csv: 분기별 고객 집계 데이터 seed
