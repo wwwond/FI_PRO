@@ -1,2 +1,14 @@
-# git에 안올릴 제외 목록data/raw/*.csv 
-.env 
+# secrets
+.env
+
+# raw data
+data/raw/
+
+# trained models / artifacts
+backend/app/ml/artifacts/
+ml_pipeline/outputs/
+
+# cache / logs
+__pycache__/
+*.pyc
+logs/
