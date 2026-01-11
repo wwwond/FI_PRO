@@ -1,5 +1,3 @@
--- 추후 ERD 설계후 넣을 예정
-
 CREATE TABLE "life_stage_explain" (
 	"explain_id"	BIGSERIAL		NOT NULL,
 	"life_stage_pred_id"	BIGSERIAL		NOT NULL,
